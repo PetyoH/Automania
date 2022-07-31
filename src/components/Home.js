@@ -1,19 +1,10 @@
-import Footer from "./Footer";
-import Header from "./Header";
-
+import styles from './Home.module.css'
 
 const Home = () => {
     return (
-        <>
-            <Header />
-
-
-            <main class="main">
+            <main className={styles.main}>
 
             </main>
-
-            <Footer />
-        </>
     );
 }
 

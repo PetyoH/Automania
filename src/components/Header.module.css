@@ -1,6 +1,4 @@
 header {
-    background-color: lightblue;
-    width: 100vw;
     height: 8vh;
     position: relative;
     padding: 10px;
@@ -19,7 +17,7 @@ header {
     justify-content: space-between;
     align-items: center;
     height: 100%;
-    width: 270px;
+    width: 240px;
     margin-left: 30px;
     text-decoration: none;
     color: black;
@@ -38,10 +36,12 @@ header {
     right: 40px;
     top: 0px;
     margin: 0px;
-    padding-top: 18px;
+    padding-top: 14px;
     padding-right: 900px;
     width: 100px;
 }
+
+
 
 ul {
     display: flex;
@@ -58,12 +58,15 @@ ul .link {
 }
 
 ul .link:hover {
-    color: red;
+    border-bottom: 2px solid white;
+    padding-bottom: 8px;
+    color: darkslategrey;
+   
 }
 
 .email {
     position: absolute;
     right: 50px;
     top: 40px;
-    font-size: 14px;
+    font-size: 16px;
 }

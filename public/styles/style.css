@@ -1,13 +1,22 @@
+@import url('https://fonts.googleapis.com/css?family=Abel|Abril+Fatface|Alegreya|Arima+Madurai|Dancing+Script|Dosis|Merriweather|Oleo+Script|Overlock|PT+Serif|Pacifico|Playball|Playfair+Display|Share|Unica+One|Vibur');
+
+
 .container {
-    font-family: "Lucida Console", "Gill Sans", sans-serif;;
+    font-family: 'Abel', sans-serif;
+
     margin: 0;
-    background-color: #eeece0;
+    width: 100%;
+   
+    
+}
+
+
+.backImg {
+    height: 3000px;  
+    background-image: url(../images/backImg.jpeg);
+
 }
 
 
 
-
-main {
-    height: 86vh;
-}
 
