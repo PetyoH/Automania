@@ -5,33 +5,22 @@
 }
 
 
-    
 
-form.loginForm {
+
+.form {
     border: 1px solid black;
     font-weight: bold;
-    height: 55%;
-    width: 24%;
+    height: 80%;
+    width: 26%;
     position: relative;
     text-align: center;
     background-color: #e0dcdc;
 }
 
-i {
-    position: absolute;
-    left: 20px;
-    top: 12px;
-    color: black;
-    font-size: 20px;
-}
-
-i:hover {
-    color: white;
-}
 
 .title {
     font-size: 30px;
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     margin-top: 30px;
 }
 
@@ -43,24 +32,48 @@ i:hover {
     height: 100vh;
 }
 
-input {
-    width: 80%;
+
+
+.input {
+    margin: 10px 0px 20px 0px;
     height: 6%;
-    margin: 10px 0px 40px 0px;
+    width: 80%;
+}
+
+.textarea {
+    width: 80%;
+    margin: 10px 0px 10px 0px;
 
 }
 
+.labelDescription {
+    margin-right: 330px;
+}
 
+.labelUsername {
+    margin-right: 340px;
+}
 
-.login {
+.labelEmail {
+    margin-right: 366px;
+}
+
+.labelPrize {
+    margin-right: 370px;
+}
+
+.labelImage {
+    margin-right: 350px;
+}
+
+.create {
     font-size: 16px;
     display: block;
-    margin: 30px auto 60px auto;
+    margin: 20px auto 40px auto;
     width: 80%;
-    height: 8%;
+    height: 6%;
     cursor: pointer;
 }
-
 
 
 
