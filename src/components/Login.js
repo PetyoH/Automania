@@ -5,7 +5,7 @@ const Login = () => {
     return (
         <div className={stylesLogin.wrapper}>
             <form className={stylesLogin.loginForm}>
-                <Link to="/" className="close"><i className="fa-solid fa-house"></i></Link>
+                <Link to="/" className="close"><i className='fa-solid fa-house'></i></Link>
                 <h2 className={stylesLogin.title} >Login</h2>
                 <label htmlFor="username">Username:</label>
                 <input type="text" id="username" name="username" className={stylesLogin.username} />

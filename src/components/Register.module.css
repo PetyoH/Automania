@@ -5,7 +5,7 @@
 }
 
 
-form {
+form.registerForm {
     border: 1px solid black;
     font-weight: bold;
     height: 70%;
@@ -15,12 +15,17 @@ form {
     background-color: #e0dcdc;
 }
 
-i {
+
+.registerForm i {
     position: absolute;
     left: 20px;
     top: 12px;
     color: black;
     font-size: 20px;
+} 
+
+.registerForm i:hover {
+    color: white;
 }
 
 .title {

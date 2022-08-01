@@ -7,11 +7,11 @@ const Create = () => {
             <form className={stylesCreate.form}>
                 <Link to="/" className="close"><i className="fa-solid fa-house"></i></Link>
                 <h2 className={stylesCreate.title} >Create</h2>
-                <label htmlFor="username"  className={stylesCreate.labelUsername}>Username:</label>
-                <input type="text" id="username" name="username" className={`${stylesCreate.username} ${stylesCreate.input}`} />
+                <label htmlFor="brand"  className={stylesCreate.labelBrand}>Brand:</label>
+                <input type="text" id="brand" name="brand" className={`${stylesCreate.brand} ${stylesCreate.input}`} />
 
-                <label htmlFor="email" className={stylesCreate.labelEmail}>Email:</label>
-                <input type="email" id="email" name="email" className={`${stylesCreate.email} ${stylesCreate.input}`} />
+                <label htmlFor="model" className={stylesCreate.labelModel}>Model:</label>
+                <input type="email" id="model" name="model" className={`${stylesCreate.model} ${stylesCreate.input}`} />
 
                 <label htmlFor="prize" className={stylesCreate.labelPrize}>Prize:</label>
                 <input type="number" id="prize" name="prize" className={`${stylesCreate.prize} ${stylesCreate.input}`} />

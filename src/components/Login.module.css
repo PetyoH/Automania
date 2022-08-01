@@ -5,7 +5,6 @@
 }
 
 
-    
 
 form.loginForm {
     border: 1px solid black;
@@ -17,15 +16,17 @@ form.loginForm {
     background-color: #e0dcdc;
 }
 
-i {
+
+
+ .loginForm i {
     position: absolute;
     left: 20px;
     top: 12px;
     color: black;
     font-size: 20px;
-}
+} 
 
-i:hover {
+.loginForm i:hover {
     color: white;
 }
 

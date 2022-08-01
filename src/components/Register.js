@@ -4,7 +4,7 @@ import stylesRegister from "./Register.module.css"
 const Register = () => {
     return (
         <div className={stylesRegister.wrapper}>
-            <form>
+            <form className={stylesRegister.registerForm}>
                 <Link to="/" className="close"><i className="fa-solid fa-house"></i></Link>
                 <h2 className={stylesRegister.title} >Register</h2>
                 <label htmlFor="username">Username:</label>

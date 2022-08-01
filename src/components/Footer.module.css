@@ -1,9 +1,13 @@
 .footer {
     background-color: lightgrey;
-    margin-top: 2150px;
+    /* margin-top: 2150px; */
     height: 6vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
+}
+
+.footer p {
+    margin: 0;
 }
