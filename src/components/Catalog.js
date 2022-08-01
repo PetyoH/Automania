@@ -1,7 +1,9 @@
 // import { Link } from "react-router-dom";
 import stylesCars from "./Catalog.module.css"
 
-const Catalog = () => {
+const Catalog = ({
+    cars
+}) => {
     return (
         <div className={stylesCars.content}>
             <img src="../../images/headerRed.jpg" alt="" className={stylesCars.headerImg} />
@@ -34,8 +36,8 @@ const Catalog = () => {
                     </div>
                     <div className={stylesCars.icons}>
                         <i className="fa-solid fa-info"></i>
-                        <i class="fa-solid fa-comment"></i>
-                        <i class="fa-solid fa-thumbs-up"></i>
+                        <i className="fa-solid fa-comment"></i>
+                        <i className="fa-solid fa-thumbs-up"></i>
 
                     </div>
 
@@ -101,8 +103,8 @@ const Catalog = () => {
                     </div>
                     <div className={stylesCars.icons}>
                         <i className="fa-solid fa-info"></i>
-                        <i class="fa-solid fa-comment"></i>
-                        <i class="fa-solid fa-thumbs-up"></i>
+                        <i className="fa-solid fa-comment"></i>
+                        <i className="fa-solid fa-thumbs-up"></i>
 
                     </div>
 
@@ -118,8 +120,8 @@ const Catalog = () => {
                     </div>
                     <div className={stylesCars.icons}>
                         <i className="fa-solid fa-info"></i>
-                        <i class="fa-solid fa-comment"></i>
-                        <i class="fa-solid fa-thumbs-up"></i>
+                        <i className="fa-solid fa-comment"></i>
+                        <i className="fa-solid fa-thumbs-up"></i>
 
                     </div>
 

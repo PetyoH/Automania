@@ -33,8 +33,8 @@ const Home = () => {
                     </div>
                     <div className={stylesMain.icons}>
                         <i className="fa-solid fa-info"></i>
-                        <i class="fa-solid fa-comment"></i>
-                        <i class="fa-solid fa-thumbs-up"></i>   
+                        <i className="fa-solid fa-comment"></i>
+                        <i className="fa-solid fa-thumbs-up"></i>   
 
                     </div>
 
