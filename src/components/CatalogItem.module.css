@@ -1,33 +1,4 @@
-.content {
-    min-width: 80vh;
-    min-height: 83.9vh;
-}
-
-
-
-.headerImg {
-    width: 100%;
-    position: absolute;
-    top: 0px;
-    z-index: -1;
-    height: 100px;
-    opacity: 0.8;
-}
-
-.cars {
-    display: flex;
-    width: 100%-200px;
-    flex-wrap: wrap;
-    gap: 100px;
-    min-height: 1000px;
-    padding-top: 70px;
-    text-align: center;
-    padding-bottom: 60px;
-    padding-left: 200px;
-    background: linear-gradient(0deg, rgba(246,96,96,1) 0%, rgba(228,231,230,1) 100%, rgba(228,231,230,1) 100%);
-}
-
-/* .card {
+.card {
     position: relative;
     border: 1px solid black;
     width: 300px;
@@ -38,17 +9,18 @@
 
 .img {
     width: 300px;
+    height: 230px;
     border-radius: 4px 4px 20px 20px;
     object-fit: cover;
-} */
+}
 
-/* .model {
+.model {
     font-size: 30px;
     padding-top: 4px;
-} */
+}
 
 
-/* .card i {
+.card i {
     font-size: 20px;
     border: 1px solid black;
     border-radius: 10px;
@@ -56,35 +28,35 @@
     color: black;
     width: 24px;
     height: 18px;
-} */
+}
 
-/* .card i:hover {
+.card i:hover {
     color: white;
     cursor: pointer;
-} */
+}
 
 
-/* .icons {
+.icons {
     display: flex;
     justify-content: space-around;
 
     margin-top: 10px;
-} */
+}
 
-/* .icons p {
+.icons p {
     width: 46px;
     height: 40px;
     font-size: 24px;
     margin: 0;
     padding: 2px;
-} */
+}
 
-/* .text {
+.text {
     display: flex;
     justify-content: space-around;
-} */
+}
 
-/* .text p {
+.text p {
     width: 66px;
     font-size: 18px;
-} */
+}
