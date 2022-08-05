@@ -1,0 +1,92 @@
+.wrapper {
+    background-image: url(../../../public/images/loginBackground.jpg);
+    width: 100vw;
+    height: 100vh;
+}
+
+
+.form {
+    border: 1px solid black;
+    font-weight: bold;
+    height: 80%;
+    width: 26%;
+    position: relative;
+    text-align: center;
+    background-color: #e0dcdc;
+}
+
+
+.title {
+    font-size: 30px;
+    margin-bottom: 20px;
+    margin-top: 30px;
+}
+
+
+.wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form i {
+    position: absolute;
+    left: 20px;
+    top: 12px;
+    color: black;
+    font-size: 20px;
+} 
+
+.form i:hover {
+    color: white;
+}
+
+
+.input {
+    margin: 10px 0px 20px 0px;
+    height: 6%;
+    width: 80%;
+}
+
+.textarea {
+    width: 80%;
+    margin: 10px 0px 10px 0px;
+    resize: none;
+}
+
+.labelDescription {
+    margin-right: 330px;
+}
+
+.labelBrand {
+    margin-right: 368px;
+}
+
+.labelModel {
+    margin-right: 366px;
+}
+
+.labelPrize {
+    margin-right: 370px;
+}
+
+.labelImage {
+    margin-right: 350px;
+}
+
+.edit {
+    font-size: 16px;
+    display: block;
+    margin: 20px auto 40px auto;
+    width: 80%;
+    height: 6%;
+    cursor: pointer;
+}
+
+.redirect {
+    text-decoration: none; 
+    color: lightslategrey;
+}
+
+

@@ -1,5 +1,5 @@
 .wrapper {
-    background-image: url(../../public/images/loginBackground.jpg);
+    background-image: url(../../../public/images/loginBackground.jpg);
     width: 100vw;
     height: 100vh;
 }
@@ -54,7 +54,7 @@
 .textarea {
     width: 80%;
     margin: 10px 0px 10px 0px;
-
+    resize: none;
 }
 
 .labelDescription {

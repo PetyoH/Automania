@@ -1,9 +1,14 @@
+import { useNavigate } from "react-router-dom";
 import stylesCars from "./CatalogItem.module.css"
 
 const CatalogItem = ({
-    car,
-    onActionClick
+    car
 }) => {
+
+    const navigate = useNavigate();
+    const onActionClick = () => {
+        navigate(`/details/${car._id}`);
+    }
 
     return (
         <section className={stylesCars.card}>
@@ -15,7 +20,7 @@ const CatalogItem = ({
                 <p>Likes</p>
             </div>
             <div className={stylesCars.icons}>
-                <i className="fa-solid fa-info" onClick={() => onActionClick(car._id, 'details')}></i>
+                <i className="fa-solid fa-info" onClick={onActionClick}></i>
                 <p>16</p>
                 <p>30</p>
 
