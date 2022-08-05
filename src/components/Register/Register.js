@@ -1,10 +1,14 @@
+import { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { register } from "../../services/authService";
-import stylesRegister from "./Register.module.css"
+import { AuthContext } from "../../contexts/AuthContext";
+import stylesRegister from "./Register.module.css";
+import * as userService from "../../services/authService"
 
 const Register = () => {
 
     const navigate = useNavigate();
+
+    const { user } = useContext(AuthContext);
 
 
     const onSubmit = async (e) => {
@@ -13,11 +17,18 @@ const Register = () => {
 
         const formData = new FormData(e.target);
 
-        const { username, password, "confirm-password": confirm_password } = Object.fromEntries(formData);
+        const { email, password, "confirm-password": confirm_password } = Object.fromEntries(formData);
 
         if (password === confirm_password) {
-            register(username, password);
-            navigate('/');
+            
+            try {
+                if (!user) {
+                    await userService.register(email, password);
+                    navigate('/');
+                }
+            } catch (error) {
+                alert(error.message)
+            }
         }
 
     }
@@ -30,12 +41,16 @@ const Register = () => {
             <form onSubmit={onSubmit} className={stylesRegister.registerForm}>
                 <Link to="/" className="close"><i className="fa-solid fa-house"></i></Link>
                 <h2 className={stylesRegister.title} >Register</h2>
-                <label htmlFor="username">Username:</label>
-                <input type="text" id="username" name="username" className={stylesRegister.username} />
+
+                <label htmlFor="email" className={stylesRegister.emailLabel}>Email:</label>
+                <input type="email" id="email" name="email" className={stylesRegister.email} />
+
                 <label htmlFor="password">Password:</label>
                 <input type="password" id="password" name="password" className={stylesRegister.password} />
+
                 <label htmlFor="confirm-password" className={stylesRegister.confirm}>Confirm password:</label>
                 <input type="password" id="confirm-password" name="confirm-password" className={stylesRegister['confirm-password']} />
+
                 <button className={stylesRegister.register} type="submit">Register</button>
                 <p>Have already an account? <Link to='/login' className={stylesRegister.redirect}>Login here</Link></p>
             </form>

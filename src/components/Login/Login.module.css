@@ -48,7 +48,10 @@ input {
     width: 80%;
     height: 6%;
     margin: 10px 0px 40px 0px;
+}
 
+.emailLabel {
+    margin-right: 336px;
 }
 
 

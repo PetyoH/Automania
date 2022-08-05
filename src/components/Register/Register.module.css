@@ -49,6 +49,11 @@ label {
     display: block;
 }
 
+.emailLabel {
+    margin-right: 336px;
+}
+
+
 .confirm {
     margin-right: 260px;
 }
