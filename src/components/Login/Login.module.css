@@ -65,13 +65,14 @@ input {
     cursor: pointer;
 }
 
-
-
-
-
 .redirect {
     text-decoration: none; 
     color: lightslategrey;
+}
+
+.error {
+    color: red;
+    margin: 0;
 }
 
 

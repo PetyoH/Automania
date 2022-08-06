@@ -6,29 +6,98 @@ import { CarContext } from "../../contexts/CarContext";
 
 const Edit = () => {
 
-    const {carId} = useParams();
+    const { carId } = useParams();
     const navigate = useNavigate();
 
     const { carEdit, carSelect } = useContext(CarContext);
 
     const currentCar = carSelect(carId);
-    
+
     useEffect(() => {
         carService.getOneCar(carId)
             .then(result => carEdit(carId, result));
     }, []);
 
+
+    const [errors, setErrors] = useState({});
+
+    const [values, setValues] = useState({
+        brand: currentCar.brand,
+        model: currentCar.model,
+        prize: currentCar.prize,
+        imageUrl: currentCar.imageUrl,
+        description: currentCar.description,
+    });
+
+    const changeHandler = (e) => {
+        setValues(state => ({
+            ...state,
+            [e.target.name]: e.target.value
+        }));
+    };
+
+    const minLenght = (e, boundary) => {
+        setErrors(state => ({
+            ...state,
+            [e.target.name]: values[e.target.name].length < boundary
+        }))
+    }
+
+    const minPrize = (e, boundary) => {
+        setErrors(state => ({
+            ...state,
+            [e.target.name]: Number(values[e.target.name]) <= boundary
+        }))
+    }
+
+    const addRedInput = (con, text) => {
+        if (con) {
+            return text + ` ${styles.redInput}`;
+        } else {
+            return text;
+        }
+    }
+
+    const isFormValid = !Object.values(errors).some(x => x);
+
+
     const onSubmit = (e) => {
         e.preventDefault();
 
-        const data = Object.fromEntries(new FormData(e.target));
+        const errorCount = Object.values(errors).length
 
-        carService.editCar(carId, data, currentCar.createdAt)
-            .then(result => {
-                carEdit(carId, result);
-            });
+        if (isFormValid && errorCount == 5) {
+            const data = Object.fromEntries(new FormData(e.target));
 
-        navigate(`/details/${carId}`);
+            carService.editCar(carId, data, currentCar.createdAt)
+                .then(result => {
+                    carEdit(carId, result);
+                });
+
+            navigate(`/details/${carId}`);
+        } else {
+
+            let neededKeys = Object.keys(values);
+
+            for (const key in errors) {
+
+                neededKeys = neededKeys.filter(x => x !== key);
+
+            }
+            const obj = {}
+
+            for (let i = 0; i < neededKeys.length; i++) {
+                obj[neededKeys[i]] = true;
+            }
+
+            setErrors(state => ({
+                ...state,
+                ...obj
+            }))
+
+        }
+
+
     }
 
 
@@ -37,20 +106,44 @@ const Edit = () => {
             <form onSubmit={onSubmit} className={styles.form}>
                 <Link to={`/details/${carId}`} className="close"><i className="fa-solid fa-arrow-left"></i></Link>
                 <h2 className={styles.title}>Edit</h2>
-                <label htmlFor="brand"  className={styles.labelBrand}>Brand:</label>
-                <input type="text" id="brand" name="brand" defaultValue={currentCar.brand} className={`${styles.brand} ${styles.input}`} />
+
+                <label htmlFor="brand" className={styles.labelBrand}>Brand:</label>
+                <input type="text" id="brand" name="brand"
+                    className={addRedInput(errors.brand, `${styles.brand} ${styles.input}`)}
+                    value={values.brand} onChange={changeHandler} onBlur={(e) => minLenght(e, 2)}
+                />
+                {errors.brand && <p className={styles.brandError}>Brand should have at least 2 characters</p>}
+
 
                 <label htmlFor="model" className={styles.labelModel}>Model:</label>
-                <input type="text" id="model" name="model" defaultValue={currentCar.model} className={`${styles.model} ${styles.input}`} />
+                <input type="text" id="model" name="model"
+                    className={addRedInput(errors.model, `${styles.model} ${styles.input}`)}
+                    value={values.model} onChange={changeHandler} onBlur={(e) => minLenght(e, 2)}
+                />
+                {errors.model && <p className={styles.modelError}>Model should have at least 2 characters</p>}
+
 
                 <label htmlFor="prize" className={styles.labelPrize}>Prize:</label>
-                <input type="number" id="prize" name="prize" defaultValue={currentCar.prize} className={`${styles.prize} ${styles.input}`} />
+                <input type="number" id="prize" name="prize"
+                    className={addRedInput(errors.prize, `${styles.prize} ${styles.input}`)}
+                    value={values.prize} onChange={changeHandler} onBlur={(e) => minPrize(e, 0)}
+                />
+                {errors.prize && <p className={styles.prizeError}>Prize should be positive number</p>}
 
                 <label htmlFor="imageUrl" className={styles.labelImage}>ImageUrl:</label>
-                <input type="text" id="imageUrl" name="imageUrl" defaultValue={currentCar.imageUrl} className={`${styles.imageUrl} ${styles.input}`} />
+                <input type="text" id="imageUrl" name="imageUrl"
+                    className={addRedInput(errors.imageUrl, `${styles.imageUrl} ${styles.input}`)}
+                    value={values.imageUrl} onChange={changeHandler} onBlur={(e) => minLenght(e, 6)}
+                />
+                {errors.imageUrl && <p className={styles.imageError}>ImageUrl should have at least 6 characters</p>}
 
                 <label htmlFor="description" className={styles.labelDescription}>Description:</label>
-                <textarea id="description" name="description" rows="6" cols="50" defaultValue={currentCar.description} className={`${styles.description} ${styles.textarea}`}></textarea>
+                <textarea id="description" name="description" rows="6" cols="50"
+                    className={addRedInput(errors.description, `${styles.description} ${styles.textarea}`)}
+                    value={values.description} onChange={changeHandler} onBlur={(e) => minLenght(e, 10)}
+                />
+
+                {errors.description && <p className={styles.descriptionError}>Description should have at least 10 characters</p>}
 
                 <button className={styles.edit} type="submit">Edit</button>
             </form>

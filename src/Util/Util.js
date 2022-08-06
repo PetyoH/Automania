@@ -1,5 +1,5 @@
-const checkPath = (pathname) => {
+export const checkPath = (pathname) => {
     return pathname === '/' || pathname === '/catalog';
 }
 
-export default checkPath;
+

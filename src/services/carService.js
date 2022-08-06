@@ -1,4 +1,4 @@
-import { collection, doc, getDocs, getDoc, addDoc, deleteDoc, setDoc, query, limit, orderBy, Timestamp } from "firebase/firestore";
+import { collection, doc, getDocs, getDoc, addDoc, deleteDoc, setDoc, query, limit, Timestamp, orderBy } from "firebase/firestore";
 import db from "../firebase";
 
 const carReference = collection(db, "cars");

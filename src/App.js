@@ -11,7 +11,7 @@ import Logout from './components/Logout/Logout';
 import Register from './components/Register/Register';
 import { AuthProvider } from './contexts/AuthContext';
 import { CarProvider } from './contexts/CarContext';
-import checkPath from './Util/Util';
+import {checkPath} from './Util/Util';
 
 function App() {
 

@@ -89,4 +89,46 @@
     color: lightslategrey;
 }
 
+.brandError {
+    color: red;
+    position: absolute;
+    top: 157px;
+    left: 46px;
+    font-size: 15px;
+}
+
+.modelError {
+    color: red;
+    position: absolute;
+    top: 259px;
+    left: 46px;
+    font-size: 15px;
+}
+
+.prizeError {
+    color: red;
+    position: absolute;
+    top: 365px;
+    left: 46px;
+    font-size: 15px;
+}
+
+.imageError {
+    color: red;
+    position: absolute;
+    top: 468px;
+    left: 46px;
+    font-size: 15px;
+}
+
+.descriptionError {
+    color: red;
+    position: absolute;
+    top: 617px;
+    left: 46px;
+    font-size: 15px;
+}
+
+
+
 

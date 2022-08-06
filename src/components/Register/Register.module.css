@@ -67,11 +67,40 @@ label {
     cursor: pointer;
 }
 
-
-
 .redirect {
     text-decoration: none; 
     color: lightslategrey;
 }
 
+.borderRed {
+    border: 1px solid red;
+}
 
+
+.emailError {
+    position: absolute;
+    color: red;
+    margin: 0;
+    top: 190px;
+    left: 45px;
+}
+
+.pasError {
+    position: absolute;
+    color: red;
+    margin: 0;
+    top: 304px;
+    left: 45px;
+}
+
+.conPasError {
+    position: absolute;
+    color: red;
+    margin: 0;
+    top: 420px;
+    left: 45px;
+}
+
+.match {
+    color: red;
+}

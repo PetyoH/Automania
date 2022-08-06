@@ -46,35 +46,44 @@
 
 
 .input {
-    margin: 10px 0px 20px 0px;
+    margin: 12px 0px 20px 0px;
     height: 6%;
     width: 80%;
 }
 
 .textarea {
     width: 80%;
-    margin: 10px 0px 10px 0px;
+    margin: 10px 0px 20px 0px;
     resize: none;
 }
 
 .labelDescription {
     margin-right: 330px;
+    font-size: 18px;
 }
 
 .labelBrand {
     margin-right: 368px;
+    font-size: 18px;
+
 }
 
 .labelModel {
     margin-right: 366px;
+    font-size: 18px;
+
 }
 
 .labelPrize {
     margin-right: 370px;
+    font-size: 18px;
+
 }
 
 .labelImage {
     margin-right: 350px;
+    font-size: 18px;
+
 }
 
 .create {
@@ -86,12 +95,53 @@
     cursor: pointer;
 }
 
-
-
-
 .redirect {
     text-decoration: none; 
     color: lightslategrey;
+}
+
+.redInput {
+    border: 1px solid red;
+}
+
+.brandError {
+    color: red;
+    position: absolute;
+    top: 157px;
+    left: 46px;
+    font-size: 15px;
+}
+
+.modelError {
+    color: red;
+    position: absolute;
+    top: 259px;
+    left: 46px;
+    font-size: 15px;
+}
+
+.prizeError {
+    color: red;
+    position: absolute;
+    top: 365px;
+    left: 46px;
+    font-size: 15px;
+}
+
+.imageError {
+    color: red;
+    position: absolute;
+    top: 468px;
+    left: 46px;
+    font-size: 15px;
+}
+
+.descriptionError {
+    color: red;
+    position: absolute;
+    top: 617px;
+    left: 46px;
+    font-size: 15px;
 }
 
 

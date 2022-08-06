@@ -8,7 +8,7 @@ export const useUser = () => {
     const [user, setUser] = useLocalStorage('user', {});
 
     useEffect(() => {
-        const unsub = onAuthStateChanged(auth, user => {
+        const stop = onAuthStateChanged(auth, user => {
 
             if (user) {
                 setUser(user);
@@ -17,7 +17,7 @@ export const useUser = () => {
             }
 
         });
-        return unsub;
+        return stop;
     }, []);
 
     return user;
