@@ -69,7 +69,7 @@ const Edit = () => {
         if (isFormValid) {
             const data = Object.fromEntries(new FormData(e.target));
 
-            carService.editCar(carId, data, currentCar.createdAt, user.uid)
+            carService.editCar(carId, data, currentCar.createdAt, user.uid, currentCar.likes, currentCar.comments)
                 .then(result => {
                     carEdit(carId, result);
                 });

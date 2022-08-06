@@ -1,4 +1,4 @@
-import { collection, doc, getDocs, getDoc, addDoc, deleteDoc, setDoc, query, limit, Timestamp, orderBy } from "firebase/firestore";
+import { collection, doc, getDocs, getDoc, addDoc, deleteDoc, setDoc, query, limit, Timestamp, orderBy, updateDoc } from "firebase/firestore";
 import db from "../firebase";
 
 const carReference = collection(db, "cars");
@@ -6,7 +6,7 @@ const carReference = collection(db, "cars");
 
 export const getAllCars = async () => {
 
-    const q = query(carReference, orderBy("createdAt"));
+    const q = query(carReference, orderBy("createdAt", "desc"));
 
     const querySnapshot  = await getDocs(q);
 
@@ -14,7 +14,6 @@ export const getAllCars = async () => {
     return querySnapshot.docs.map(doc => ({
         _id: doc.id,
         ...(doc.data()),
-
     }));
 }
 
@@ -52,14 +51,23 @@ export const deleteCar = async (carId) => {
     await deleteDoc(doc(db, "cars", carId));
 }
 
-export const editCar = async (carId, carData, createdAt, ownerId) => {
+export const editCar = async (carId, carData, createdAt, ownerId, likes, comments) => {
     const docRef = doc(db, "cars", carId);
 
-    const allData = { ...carData, createdAt, ownerId};
+    const allData = { ...carData, createdAt, ownerId, likes, comments};
 
     await setDoc(docRef, { ...allData });
 
-    const decoratedData =  { ...carData, _id: docRef.id, ownerId}
+    const decoratedData =  { ...carData, _id: docRef.id, ownerId, likes, comments}
 
     return decoratedData;
+}
+
+export const likeCar = async (carId, likes) => {
+
+    const likesRef = doc(db, "cars", carId);
+
+    await updateDoc(likesRef, { likes });
+
+    return likes;
 }

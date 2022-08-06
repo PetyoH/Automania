@@ -19,11 +19,13 @@ export const CarProvider = ({
     }, []);
 
     // const carLatest = () => {
-    //     return 
+    //     carService.getLatestCars()
+    //         .then(result => set)
     // }
 
+
     const carCreate = (carData) => {
-        setCars([...cars, carData]);
+        setCars([carData, ...cars]);
         navigate('/catalog');
     }
 
@@ -43,7 +45,6 @@ export const CarProvider = ({
         return setCars(cars.map(x => x._id === carId ? carData : x));
     }
 
-
     return (
         <CarContext.Provider value={{
             cars,
@@ -51,7 +52,7 @@ export const CarProvider = ({
             carDelete,
             carSelect,
             carDetails,
-            carEdit
+            carEdit,
         }}>
             {children}
         </CarContext.Provider>

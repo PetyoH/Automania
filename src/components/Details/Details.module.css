@@ -74,6 +74,7 @@
     width: 100px;
     height: 30px;
     border-radius: 8px;
+    font-size: 16px;
     border: 1px solid black;
 }
 
@@ -85,6 +86,7 @@
 
 .like {
     width: 100px;
+    font-size: 16px;
     height: 30px;
     border-radius: 8px;
     border: 1px solid black;
@@ -97,6 +99,7 @@
 
 .delete {
     width: 100px;
+    font-size: 16px;
     height: 30px;
     border-radius: 8px;
     border: 1px solid black;
@@ -147,4 +150,13 @@
     width: 100%;
     gap: 100px;
     margin-top: 70px;
+}
+
+.likes {
+    position: relative;
+    font-size: 20px;
+    font-weight: bold;
+    left: 280px;
+    bottom: 20px;
+    width: 20px;
 }

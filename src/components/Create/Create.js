@@ -60,10 +60,12 @@ const Create = () => {
 
         const data = Object.fromEntries(formData);
         data.ownerId = user.uid;
+        data.likes = [];
+        data.comments = [];
 
         const errorCount = Object.values(errors).length
 
-        if (isFormValid && errorCount == 5) {
+        if (isFormValid && errorCount === 5) {
             carService.createCar(data)
                 .then(result => {
                     carCreate(result);

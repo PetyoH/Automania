@@ -1,9 +1,14 @@
+import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import { CarContext } from "../../contexts/CarContext";
 import stylesCars from "./CatalogItem.module.css"
 
 const CatalogItem = ({
     car
 }) => {
+
+    const { carSelect } = useContext(CarContext);
+    const currentCar = carSelect(car._id);
 
     const navigate = useNavigate();
     const onActionClick = () => {
@@ -22,7 +27,7 @@ const CatalogItem = ({
             <div className={stylesCars.icons}>
                 <i className="fa-solid fa-info" onClick={onActionClick}></i>
                 <p>16</p>
-                <p>30</p>
+                <p>{currentCar.likes.length}</p>
 
             </div>
 

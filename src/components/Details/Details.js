@@ -1,4 +1,4 @@
-import { useContext, useEffect, useReducer } from "react";
+import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import styles from "./Details.module.css"
 import * as carService from "../../services/carService"
@@ -9,33 +9,65 @@ const Details = () => {
     const navigate = useNavigate();
     const { carId } = useParams();
     const { user } = useContext(AuthContext);
-
-    const { carDelete, carSelect, carDetails } = useContext(CarContext);
+    const { carDelete, carSelect, carDetails, carEdit } = useContext(CarContext);
     const currentCar = carSelect(carId);
-    let isOwner = false;
-    if (user) {
-        isOwner = currentCar.ownerId === user.uid;
-    }
+    const [isOwner, setIsOwner] = useState(false);
+    const [hasLiked, setHasLiked] = useState(false);
+
 
     useEffect(() => {
+        if (user) {
+            setIsOwner(currentCar.ownerId === user.uid);
+            if (currentCar.likes.includes(user.uid)) {
+                setHasLiked(true);
+            }
+        }
+
+
         carService.getOneCar(carId)
             .then(car => {
                 carDetails(carId, car);
             });
     }, []);
 
+
     const editHandler = () => {
         navigate(`/edit/${carId}`);
     }
 
     const deleteHandler = () => {
-        carDelete(carId);
 
         carService.deleteCar(carId)
             .then(() => {
                 carDelete(carId)
             })
         navigate('/catalog');
+    }
+
+  
+
+    const likeHandler = () => {
+        
+        const currentLikes = [...currentCar.likes, user.uid];
+
+        carService.likeCar(carId, currentLikes)
+            .then(likes => carEdit(currentCar._id, {...currentCar, likes}));
+
+        setHasLiked(true);
+    }
+
+
+    const unlikeHandler = () => {
+
+        const currentLikes = currentCar.likes.filter(x => x !== user.uid);
+
+
+        
+        carService.likeCar(carId, currentLikes)
+            .then(likes => carEdit(currentCar._id, {...currentCar, likes}));
+
+
+        setHasLiked(false);
     }
 
     return (
@@ -57,10 +89,14 @@ const Details = () => {
                     <div className={styles.buttons}>
 
                         {isOwner && <button className={styles.edit} onClick={editHandler}>Edit</button>}
-                        {user && <button className={styles.like} >Like</button>}
+                        {user && (!hasLiked 
+                        ? <button className={styles.like} onClick={likeHandler}>Like</button> 
+                        : <button className={styles.like} onClick={unlikeHandler}>Unlike</button>)}
+                        
                         {isOwner && <button className={styles.delete} onClick={deleteHandler}>Delete</button>}
                     </div>
 
+                    {user && <p className={styles.likes}>{currentCar.likes.length}</p>}
 
                     <h3 className={styles.h3}>Comments:</h3>
                     {user && <>
