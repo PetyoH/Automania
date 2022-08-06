@@ -31,6 +31,7 @@
     border-radius: 10px;
     max-height: 800px;
     overflow-y: scroll;
+    overflow-x: none;
 }
 
 .info i {
@@ -62,9 +63,11 @@
 
 .p {
     margin-left: 40px;
-    font-size: 18px;
+    font-size: 20px;
     margin-bottom: 32px;
     width: 80%;
+    overflow-wrap: break-word;
+
 }
 
 .edit {

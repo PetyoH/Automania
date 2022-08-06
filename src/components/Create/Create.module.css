@@ -46,8 +46,8 @@
 
 
 .input {
-    margin: 12px 0px 20px 0px;
-    height: 6%;
+    margin: 12px 0px 22px 0px;  
+    height: 45px;
     width: 80%;
 }
 
@@ -81,7 +81,7 @@
 }
 
 .labelImage {
-    margin-right: 350px;
+    margin-right: 342px;
     font-size: 18px;
 
 }
@@ -107,7 +107,7 @@
 .brandError {
     color: red;
     position: absolute;
-    top: 157px;
+    top: 160px;
     left: 46px;
     font-size: 15px;
 }
@@ -115,7 +115,7 @@
 .modelError {
     color: red;
     position: absolute;
-    top: 259px;
+    top: 265px;
     left: 46px;
     font-size: 15px;
 }
@@ -123,7 +123,7 @@
 .prizeError {
     color: red;
     position: absolute;
-    top: 365px;
+    top: 370px;
     left: 46px;
     font-size: 15px;
 }
@@ -131,7 +131,7 @@
 .imageError {
     color: red;
     position: absolute;
-    top: 468px;
+    top: 478px;
     left: 46px;
     font-size: 15px;
 }
@@ -139,7 +139,7 @@
 .descriptionError {
     color: red;
     position: absolute;
-    top: 617px;
+    top: 631px;
     left: 46px;
     font-size: 15px;
 }

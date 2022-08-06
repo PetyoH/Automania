@@ -9,6 +9,7 @@ const Login = () => {
     const navigate = useNavigate();
 
     const [error, setError] = useState(false);
+    const { user } = useContext(AuthContext);
 
     const [values, setValues] = useState({
         email: '',
@@ -22,7 +23,6 @@ const Login = () => {
         }));
     };
 
-    const { user } = useContext(AuthContext);
 
     const onSubmit = async (e) => {
 

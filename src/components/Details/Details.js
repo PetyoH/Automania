@@ -1,15 +1,21 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useReducer } from "react";
 import { useNavigate, useParams, Link } from "react-router-dom";
 import styles from "./Details.module.css"
 import * as carService from "../../services/carService"
 import { CarContext } from "../../contexts/CarContext";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const Details = () => {
     const navigate = useNavigate();
     const { carId } = useParams();
+    const { user } = useContext(AuthContext);
 
     const { carDelete, carSelect, carDetails } = useContext(CarContext);
     const currentCar = carSelect(carId);
+    let isOwner = false;
+    if (user) {
+        isOwner = currentCar.ownerId === user.uid;
+    }
 
     useEffect(() => {
         carService.getOneCar(carId)
@@ -49,15 +55,18 @@ const Details = () => {
 
 
                     <div className={styles.buttons}>
-                        <button className={styles.edit} onClick={editHandler}>Edit</button>
-                        <button className={styles.like} >Like</button>
-                        <button className={styles.delete} onClick={deleteHandler}>Delete</button>
+
+                        {isOwner && <button className={styles.edit} onClick={editHandler}>Edit</button>}
+                        {user && <button className={styles.like} >Like</button>}
+                        {isOwner && <button className={styles.delete} onClick={deleteHandler}>Delete</button>}
                     </div>
 
 
                     <h3 className={styles.h3}>Comments:</h3>
-                    <textarea name="description" rows="6" cols="50" className={styles.textarea} />
-                    <button className={styles.comment}>Comment</button>
+                    {user && <>
+                        <textarea name="description" rows="6" cols="50" className={styles.textarea} />
+                        <button className={styles.comment}>Comment</button>
+                    </>}
 
                 </div>
             </div>

@@ -3,11 +3,13 @@ import styles from "./Edit.module.css";
 import * as carService from "../../services/carService";
 import { useContext, useEffect, useState } from "react";
 import { CarContext } from "../../contexts/CarContext";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const Edit = () => {
 
     const { carId } = useParams();
     const navigate = useNavigate();
+    const {user} = useContext(AuthContext); 
 
     const { carEdit, carSelect } = useContext(CarContext);
 
@@ -64,40 +66,17 @@ const Edit = () => {
     const onSubmit = (e) => {
         e.preventDefault();
 
-        const errorCount = Object.values(errors).length
-
-        if (isFormValid && errorCount == 5) {
+        if (isFormValid) {
             const data = Object.fromEntries(new FormData(e.target));
 
-            carService.editCar(carId, data, currentCar.createdAt)
+            carService.editCar(carId, data, currentCar.createdAt, user.uid)
                 .then(result => {
                     carEdit(carId, result);
                 });
 
             navigate(`/details/${carId}`);
-        } else {
-
-            let neededKeys = Object.keys(values);
-
-            for (const key in errors) {
-
-                neededKeys = neededKeys.filter(x => x !== key);
-
-            }
-            const obj = {}
-
-            for (let i = 0; i < neededKeys.length; i++) {
-                obj[neededKeys[i]] = true;
-            }
-
-            setErrors(state => ({
-                ...state,
-                ...obj
-            }))
-
-        }
-
-
+        } 
+        
     }
 
 

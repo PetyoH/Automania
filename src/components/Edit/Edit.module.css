@@ -50,28 +50,35 @@
 }
 
 .textarea {
-    width: 80%;
+    max-width: 80%;
     margin: 10px 0px 10px 0px;
     resize: none;
+    padding: 10px;
 }
 
 .labelDescription {
     margin-right: 330px;
+    font-size: 18px;
+
 }
 
 .labelBrand {
     margin-right: 368px;
+    font-size: 18px;
 }
 
 .labelModel {
+    font-size: 18px;
     margin-right: 366px;
 }
 
 .labelPrize {
+    font-size: 18px;
     margin-right: 370px;
 }
 
 .labelImage {
+    font-size: 18px;
     margin-right: 350px;
 }
 
@@ -92,7 +99,7 @@
 .brandError {
     color: red;
     position: absolute;
-    top: 157px;
+    top: 155px;
     left: 46px;
     font-size: 15px;
 }
@@ -108,7 +115,7 @@
 .prizeError {
     color: red;
     position: absolute;
-    top: 365px;
+    top: 364px;
     left: 46px;
     font-size: 15px;
 }
@@ -124,7 +131,7 @@
 .descriptionError {
     color: red;
     position: absolute;
-    top: 617px;
+    top: 632px;
     left: 46px;
     font-size: 15px;
 }

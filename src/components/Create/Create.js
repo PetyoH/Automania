@@ -3,9 +3,11 @@ import stylesCreate from "./Create.module.css";
 import * as carService from "../../services/carService"
 import { useContext, useState } from "react";
 import { CarContext } from "../../contexts/CarContext";
+import { AuthContext } from "../../contexts/AuthContext";
 
 const Create = () => {
 
+    const {user} = useContext(AuthContext);
 
     const { carCreate } = useContext(CarContext);
 
@@ -57,6 +59,7 @@ const Create = () => {
         const formData = new FormData(e.target);
 
         const data = Object.fromEntries(formData);
+        data.ownerId = user.uid;
 
         const errorCount = Object.values(errors).length
 

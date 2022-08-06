@@ -3,6 +3,7 @@ import db from "../firebase";
 
 const carReference = collection(db, "cars");
 
+
 export const getAllCars = async () => {
 
     const q = query(carReference, orderBy("createdAt"));
@@ -51,14 +52,14 @@ export const deleteCar = async (carId) => {
     await deleteDoc(doc(db, "cars", carId));
 }
 
-export const editCar = async (carId, carData, createdAt) => {
+export const editCar = async (carId, carData, createdAt, ownerId) => {
     const docRef = doc(db, "cars", carId);
 
-    const allData = { ...carData, createdAt};
+    const allData = { ...carData, createdAt, ownerId};
 
     await setDoc(docRef, { ...allData });
 
-    const decoratedData =  { ...carData, _id: docRef.id }
+    const decoratedData =  { ...carData, _id: docRef.id, ownerId}
 
     return decoratedData;
 }
