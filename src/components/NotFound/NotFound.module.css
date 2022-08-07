@@ -19,7 +19,8 @@
     height: 500px;
   
 }
-#rocket{
+
+.rocket{
     
     transform: translateY(750px);
    
@@ -35,7 +36,7 @@
         transform: translateY(0px); 
     }
 }
-#stars {
+.stars {
     animation: twinkling 2s linear ;
 }
 @keyframes twinkling {
