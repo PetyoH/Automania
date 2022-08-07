@@ -26,7 +26,7 @@ const HomeItem = ({
             </div>
             <div className={stylesCars.icons}>
                 <i className="fa-solid fa-info" onClick={onActionClick}></i>
-                <p>16</p>
+                <p>{currentCar.comments.length}</p>
                 <p>{currentCar.likes.length}</p>
 
             </div>

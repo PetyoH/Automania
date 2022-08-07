@@ -111,7 +111,7 @@ const Details = () => {
                         <button className={styles.comment} onClick={commentHandler}>Comment</button>
                     </>}
                     <h3 className={styles.h3}>Comments:</h3>
-                    {currentCar.comments.length > 0
+                    {currentCar.comments?.length > 0
                         ? currentCar.comments.map(x => x.comment).map(comment => {
                             return <div key={nextId()} className={styles.commentContainer}>
                                 <p className={styles.emailComment}>{comment.email}</p>

@@ -188,3 +188,10 @@
     font-size: 18px;
     font-style: italic;
 }
+
+.noComments {
+    position: relative;
+    width: 20%;
+    left: 240px;
+    
+}

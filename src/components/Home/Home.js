@@ -1,11 +1,19 @@
 import stylesMain from './Home.module.css'
 import HomeItem from '../HomeItem/HomeItem';
-import { useContext } from 'react';
+import * as carService from '../../services/carService'
+import { useContext, useEffect, useState } from 'react';
 import { CarContext } from '../../contexts/CarContext';
 
 const Home = () => {
 
-    const {latestCars} = useContext(CarContext);
+    // const {latestCars} = useContext(CarContext);
+    const [latestCars, setLatestCars] = useState([]);
+
+
+    useEffect(() => {
+        carService.getLatestCars()
+            .then(result => setLatestCars(result));
+    }, []);
 
     return (
         <main className={stylesMain.main}>
