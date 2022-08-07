@@ -8,8 +8,6 @@ const Catalog = () => {
 
     const { cars } = useContext(CarContext); 
 
-    console.log(cars);
-
     return (
         <>
             <div className={stylesCars.content}>

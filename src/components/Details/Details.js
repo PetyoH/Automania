@@ -89,7 +89,6 @@ const Details = () => {
         const comment = { comment: { text: area, email: user.email } };
 
         const allComments = [comment, ...currentCar.comments];
-        console.log();
 
         if (area !== '') {
 
@@ -100,8 +99,6 @@ const Details = () => {
                         setArea('');
                     });
         }
-
-        
     }
 
     const onCloseHandler = () => {
