@@ -24,64 +24,9 @@
     height: 1000px;
 }
 
-/* .card {
-    position: relative;
-    border: 1px solid black;
-    width: 300px;
-    height: 500px;
-    border-radius: 6px 6px 10px 10px;
-    background-color: #ccd0e0;
+.noCars {
+    font-size: 50px;
+    width: 100%;
+    text-align: center;
 }
 
-.img {
-    width: 300px;
-    border-radius: 4px 4px 20px 20px;
-
-}
-
-.model {
-    font-size: 30px;
-    padding-top: 4px;
-}
-
-
-.card i {
-    font-size: 20px;
-    border: 1px solid black;
-    border-radius: 10px;
-    padding: 10px;
-    color: black;
-    width: 24px;
-    height: 18px;
-}
-
-.card i:hover {
-    color: white;
-    cursor: pointer;
-}
-
-
-.icons {
-    display: flex;
-    justify-content: space-around;
-
-    margin-top: 10px;
-}
-
-.icons p {
-    width: 46px;
-    height: 40px;
-    font-size: 24px;
-    margin: 0;
-    padding: 2px;
-}
-
-.text {
-    display: flex;
-    justify-content: space-around;
-}
-
-.text p {
-    width: 66px;
-    font-size: 18px;
-} */

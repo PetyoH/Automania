@@ -12,6 +12,7 @@
 .backImg {
     height: 3000px;  
     background-image: url(../images/backImg.jpeg);
+    min-width: 600px;
 }
 
 

@@ -15,6 +15,8 @@ const Home = () => {
             .then(result => setLatestCars(result));
     }, []);
 
+    
+
     return (
         <main className={stylesMain.main}>
             <h1 className={stylesMain.title}>Learn everything about cars</h1>
@@ -22,7 +24,7 @@ const Home = () => {
             <div className={stylesMain.latest}>
 
                 {latestCars.map(car => <HomeItem key={car._id} car={car} />)} 
-
+                {latestCars.length < 0 ? <h1 className={stylesMain.noCars}>No cars yet</h1> : null}
 
             {/* 
                 <section className={stylesMain.card}>

@@ -84,6 +84,19 @@
     border: 2px solid black;
 }
 
+.unlike {
+    width: 100px;
+    font-size: 16px;
+    height: 30px;
+    border-radius: 8px;
+    border: 1px solid black;
+}
+
+.unlike:hover {
+    border: 2px solid red;
+    background-color: #009c58;
+}
+
 .like {
     width: 100px;
     font-size: 16px;
@@ -193,5 +206,5 @@
     position: relative;
     width: 20%;
     left: 240px;
-    
+
 }

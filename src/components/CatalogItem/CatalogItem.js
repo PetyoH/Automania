@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { useNavigate } from "react-router-dom";
+import { Navigate, useNavigate } from "react-router-dom";
 import { CarContext } from "../../contexts/CarContext";
 import stylesCars from "./CatalogItem.module.css"
 
@@ -12,7 +12,8 @@ const CatalogItem = ({
 
     const navigate = useNavigate();
     const onActionClick = () => {
-        navigate(`/details/${car._id}`);
+        //  <Navigate to={`/details/${car._id}`} prevPath='/catalog'/>
+        navigate(`/details/${car._id}`, {state: {prevPath: '/catalog'}});
     }
 
     return (

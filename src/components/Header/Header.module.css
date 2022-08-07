@@ -27,7 +27,6 @@ header {
     display: inline-block;
     margin: 0px;
     font-size: 32px;
-
 }
 
 
@@ -69,4 +68,61 @@ ul .link:hover {
     right: 50px;
     top: 40px;
     font-size: 16px;
+}
+
+@media screen and (max-width: 1750px) {
+    .navigation {
+        padding-right: 700px;
+    }
+}
+
+@media screen and (max-width: 1280px) {
+    .navigation {
+        padding-right: 500px;
+    }
+}
+
+@media screen and (max-width: 1120px) {
+    .navigation {
+        padding-right: 400px;
+        
+    }
+    .logoImg {
+        width: 0px;
+        object-fit: cover;
+        border-radius: 100%;
+    }
+}
+
+
+@media screen and (max-width: 700px) {
+    ul {
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+        justify-content: center;
+        gap: 10px;
+        font-size: 18px;
+        margin-left: 200px;
+    }
+
+    header {
+        height: 8vh;
+        position: relative;
+        padding: 10px;
+        font-size: 20px;
+    }
+    
+    .logoImg {
+        width: 0px;
+        object-fit: cover;
+        border-radius: 100%;
+    }
+
+    .title {
+        display: inline-block;
+        margin-right: 100px;
+        font-size: 22px;
+    }
+    
 }

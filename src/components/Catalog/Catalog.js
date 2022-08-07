@@ -16,6 +16,7 @@ const Catalog = () => {
                 <div className={stylesCars.cars}>
 
                     {cars?.map(car => <CatalogItem key={car._id} car={car} />)}
+                    {!cars ? <h1 className={stylesCars.noCars}>No cars yet</h1> : null}
 
                 </div>
             </div>

@@ -10,11 +10,12 @@
 .form {
     border: 1px solid black;
     font-weight: bold;
-    height: 80%;
+    height: 90%;
     width: 26%;
     position: relative;
     text-align: center;
     background-color: #e0dcdc;
+    min-width: 220px;
 }
 
 
@@ -83,7 +84,6 @@
 .labelImage {
     margin-right: 342px;
     font-size: 18px;
-
 }
 
 .create {
@@ -142,4 +142,33 @@
     top: 631px;
     left: 46px;
     font-size: 15px;
+}
+
+@media screen and (max-width: 1500px) {
+    .labelDescription {
+        margin-left: 40px;
+    }
+    
+    .labelBrand {
+        margin-left: 40px;
+
+    
+    }
+    
+    .labelModel {
+        margin-left: 40px;
+
+    
+    }
+    
+    .labelPrize {
+        margin-left: 40px;
+
+    
+    }
+    
+    .labelImage {
+        margin-left: 40px;
+        
+    }
 }

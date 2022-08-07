@@ -12,7 +12,7 @@ const HomeItem = ({
 
     const navigate = useNavigate();
     const onActionClick = () => {
-        navigate(`/details/${car._id}`);
+        navigate(`/details/${car._id}`, {state: {prevPath: '/'}});
     }
 
     return (

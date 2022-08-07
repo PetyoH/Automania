@@ -1,4 +1,4 @@
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import styles from "./Edit.module.css";
 import * as carService from "../../services/carService";
 import { useContext, useEffect, useState } from "react";
@@ -19,6 +19,10 @@ const Edit = () => {
         carService.getOneCar(carId)
             .then(result => carEdit(carId, result));
     }, []);
+
+    const { state } = useLocation();
+    const { prevPath } = state;
+
 
 
     const [errors, setErrors] = useState({});
@@ -74,16 +78,21 @@ const Edit = () => {
                     carEdit(carId, result);
                 });
 
-            navigate(`/details/${carId}`);
+            navigate(`/details/${carId}`, {state: {prevPath}});
         } 
         
+    }
+
+    const onActionClick = () => {
+        navigate(`/details/${carId}`, {state: {prevPath}});
     }
 
 
     return (
         <div className={styles.wrapper}>
             <form onSubmit={onSubmit} className={styles.form}>
-                <Link to={`/details/${carId}`} className="close"><i className="fa-solid fa-arrow-left"></i></Link>
+                <i onClick={onActionClick} className="fa-solid fa-arrow-left"></i>
+                {/* <Link to={`/details/${carId}`} className="close"><i className="fa-solid fa-arrow-left"></i></Link> */}
                 <h2 className={styles.title}>Edit</h2>
 
                 <label htmlFor="brand" className={styles.labelBrand}>Brand:</label>

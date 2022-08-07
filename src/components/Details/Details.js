@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from "react";
-import { useNavigate, useParams, Link } from "react-router-dom";
+import { useNavigate, useParams, Link, useLocation } from "react-router-dom";
 import styles from "./Details.module.css"
 import * as carService from "../../services/carService"
 import { CarContext } from "../../contexts/CarContext";
@@ -16,7 +16,15 @@ const Details = () => {
     const [hasLiked, setHasLiked] = useState(false);
 
 
+
+    const { state } = useLocation();
+    const { prevPath } = state;
+
+
+
     useEffect(() => {
+
+
         if (user) {
             setIsOwner(currentCar.ownerId === user.uid);
             if (currentCar.likes.includes(user.uid)) {
@@ -32,18 +40,25 @@ const Details = () => {
     }, []);
 
 
+
+
     const editHandler = () => {
-        navigate(`/edit/${carId}`);
+        navigate(`/edit/${carId}`, {state: {prevPath: prevPath}});
     }
 
     const deleteHandler = () => {
 
-        carService.deleteCar(carId)
-            .then(() => {
-                carDelete(carId)
-            })
-        navigate('/catalog');
+        if (window.confirm("Are you sure you want to delete this car?")) {
+            carService.deleteCar(carId)
+                .then(() => {
+                    carDelete(carId)
+                })
+            navigate('/catalog');
+        }
+
     }
+
+
 
     const likeHandler = () => {
         const currentLikes = [...currentCar.likes, user.uid];
@@ -76,7 +91,11 @@ const Details = () => {
         carService.commentCar(carId, currentCar, allComments)
             .then(comments => carEdit(currentCar._id, { ...currentCar, comments }));
 
-            container.querySelector('textarea').value = '';
+        container.querySelector('textarea').value = '';
+    }
+
+    const onCloseHandler = () => {
+        navigate(prevPath);
     }
 
     return (
@@ -84,7 +103,7 @@ const Details = () => {
             <div className={styles.back} />
             <div className={styles.infoContainer}>
                 <div className={styles.info}>
-                    <Link to='/catalog'><i className="fa-solid fa-xmark"></i></Link>
+                    <i onClick={onCloseHandler} className="fa-solid fa-xmark"></i>
                     <h2 className={styles.title}>Details</h2>
 
                     <img src={currentCar.imageUrl} alt="" className={styles.img} />
@@ -99,7 +118,7 @@ const Details = () => {
                         {isOwner && <button className={styles.edit} onClick={editHandler}>Edit</button>}
                         {user && (!hasLiked
                             ? <button className={styles.like} onClick={likeHandler}>Like</button>
-                            : <button className={styles.like} onClick={unlikeHandler}>Unlike</button>)}
+                            : <button className={styles.unlike} onClick={unlikeHandler}>Unlike</button>)}
 
                         {isOwner && <button className={styles.delete} onClick={deleteHandler}>Delete</button>}
                     </div>
@@ -116,7 +135,7 @@ const Details = () => {
                             return <div key={nextId()} className={styles.commentContainer}>
                                 <p className={styles.emailComment}>{comment.email}</p>
                                 <p className={styles.infoComment}>{comment.text}</p>
-                                </div>
+                            </div>
                         })
                         : <p className={styles.noComments}>No comments yet</p>}
 

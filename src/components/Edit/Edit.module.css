@@ -8,11 +8,12 @@
 .form {
     border: 1px solid black;
     font-weight: bold;
-    height: 80%;
+    height: 88%;
     width: 26%;
     position: relative;
     text-align: center;
     background-color: #e0dcdc;
+    min-width: 240px;
 }
 
 
@@ -138,4 +139,26 @@
 
 
 
+@media screen and (max-width: 1640px) {
+    .labelDescription {
+        margin-left: 30px;
+    
+    }
+    
+    .labelBrand {
+        margin-left: 30px;
 
+    }
+    
+    .labelModel {
+        margin-left: 30px;
+    }
+    
+    .labelPrize {
+        margin-left: 30px;
+    }
+    
+    .labelImage {
+        margin-left: 30px;
+    }
+}
