@@ -121,7 +121,10 @@
     margin: 50px auto;
     resize: none;
     border-radius: 2px;
-
+    width: 400px;
+    height: 100px;
+    font-size: 18px;
+    padding: 10px;
 }
 
 
@@ -159,4 +162,29 @@
     left: 280px;
     bottom: 20px;
     width: 20px;
+}
+
+.commentContainer {
+    position: relative;
+    width: 300px;
+    margin: 40px auto;
+    padding: 10px;
+    min-height: 100px;
+    border: 1px solid black;
+    border-radius: 12px;
+    overflow-wrap: break-word;
+}
+
+.emailComment {
+    position: absolute;
+    top: 0px;
+    left: 110px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.infoComment {
+    margin-top: 60px;
+    font-size: 18px;
+    font-style: italic;
 }

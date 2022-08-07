@@ -20,7 +20,7 @@ export const getAllCars = async () => {
 
 export const getLatestCars = async () => {
 
-    const q = query(carReference, orderBy("createdAt"), limit(6));
+    const q = query(carReference, orderBy("createdAt", "desc"), limit(6));
 
     const querySnapshot = await getDocs(q);
 
@@ -64,10 +64,19 @@ export const editCar = async (carId, carData, createdAt, ownerId, likes, comment
 }
 
 export const likeCar = async (carId, likes) => {
-
     const likesRef = doc(db, "cars", carId);
 
     await updateDoc(likesRef, { likes });
 
     return likes;
+}
+
+export const commentCar = async (carId, carData, comments) => {
+    const commentsRef = doc(db, "cars", carId);
+
+    const allData = {...carData, comments};
+
+    await setDoc(commentsRef, {...allData});
+
+    return comments;
 }

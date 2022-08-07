@@ -1,11 +1,22 @@
 import stylesMain from './Home.module.css'
+import HomeItem from '../HomeItem/HomeItem';
+import { useContext } from 'react';
+import { CarContext } from '../../contexts/CarContext';
 
 const Home = () => {
+
+    const {latestCars} = useContext(CarContext);
+
     return (
         <main className={stylesMain.main}>
             <h1 className={stylesMain.title}>Learn everything about cars</h1>
             <h2 className={stylesMain.h2}>Latest cars:</h2>
             <div className={stylesMain.latest}>
+
+                {latestCars.map(car => <HomeItem key={car._id} car={car} />)} 
+
+
+            {/* 
                 <section className={stylesMain.card}>
                     <img src="../../images/blackCar.jpg" alt="" className={stylesMain.img} />
                     <h3 className={stylesMain.model}>Model</h3>
@@ -21,8 +32,8 @@ const Home = () => {
 
                     </div>
 
-                </section>
-                <section className={stylesMain.card}>
+                </section> */}
+                {/* <section className={stylesMain.card}>
                     <img src="../../images/blackCar.jpg" alt="" className={stylesMain.img} />
                     <h3 className={stylesMain.model}>Model</h3>
 
@@ -38,25 +49,8 @@ const Home = () => {
 
                     </div>
 
-                </section>
-                <section className={stylesMain.card}>
-                    <img src="../../images/blackCar.jpg" alt="" className={stylesMain.img} />
-                    <h3 className={stylesMain.model}>Model</h3>
-
-
-                </section>
-                <section className={stylesMain.card}>
-                    <img src="../../images/blackCar.jpg" alt="" className={stylesMain.img} />
-                    <h3 className={stylesMain.model}>Model</h3>
-
-
-                </section>
-                <section className={stylesMain.card}>
-                    <img src="../../images/blackCar.jpg" alt="" className={stylesMain.img} />
-                    <h3 className={stylesMain.model}>Model</h3>
-
-
-                </section>
+                </section> */}
+               
             </div>
         </main>
     );

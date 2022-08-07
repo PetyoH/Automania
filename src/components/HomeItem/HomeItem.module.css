@@ -1,30 +1,4 @@
-.main {
-    height: 2820px;
-    text-align: center;
-
-}
-
-.title {
-    margin-top: 40px;
-    font-size: 40px;
-}
-
-.h2 {
-    margin-top: 100px;
-    font-size: 34px;
-}
-
-.latest {
-    display: flex;
-    width: 59%;
-    flex-wrap: wrap;
-    margin: 0 auto;
-    gap: 100px;
-    min-height: 600px;
-    height: 1000px;
-}
-
-/* .card {
+.card {
     position: relative;
     border: 1px solid black;
     width: 300px;
@@ -84,4 +58,4 @@
 .text p {
     width: 66px;
     font-size: 18px;
-} */
+}

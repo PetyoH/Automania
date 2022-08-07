@@ -12,24 +12,36 @@ export const CarProvider = ({
 
     const navigate = useNavigate();
     const [cars, setCars] = useState([]);
+    const [latestCars, setLatestCars] = useState([])
 
     useEffect(() => {
         carService.getAllCars()
-            .then(result => setCars(result.slice()))
+            .then(result => setCars(result.slice()));
+
+            carService.getLatestCars()
+            .then(result => setLatestCars(result));
+
+        // carService.getLatestCars()
+        //     .then(result => console.log(result));    
     }, []);
 
-    // const carLatest = () => {
-    //     carService.getLatestCars()
-    //         .then(result => set)
-    // }
+    
+    useEffect(() => {
+        // carService.getLatestCars()
+        //     .then(result => setLatestCars(result));
+    }, []);
 
 
+
+    // fix
     const carCreate = (carData) => {
+        setLatestCars([carData, ...latestCars.slice(latestCars.length - 1)]);
         setCars([carData, ...cars]);
         navigate('/catalog');
     }
 
     const carDelete = (carId) => {
+        setLatestCars((cars.filter(x => x._id !== carId)));
         return setCars((cars.filter(x => x._id !== carId)));
     }
 
@@ -42,12 +54,15 @@ export const CarProvider = ({
     }
 
     const carEdit = (carId, carData) => {
+        // setLatestCars(cars.map(x => x._id === carId ? carData : x));
+        console.log(carData);
         return setCars(cars.map(x => x._id === carId ? carData : x));
     }
 
     return (
         <CarContext.Provider value={{
             cars,
+            latestCars,
             carCreate,
             carDelete,
             carSelect,

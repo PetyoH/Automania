@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { CarContext } from "../../contexts/CarContext";
-import stylesCars from "./CatalogItem.module.css"
+import stylesCars from "./HomeItem.module.css"
 
-const CatalogItem = ({
+const HomeItem = ({
     car
 }) => {
 
@@ -26,7 +26,7 @@ const CatalogItem = ({
             </div>
             <div className={stylesCars.icons}>
                 <i className="fa-solid fa-info" onClick={onActionClick}></i>
-                <p>{currentCar.comments.length}</p>
+                <p>16</p>
                 <p>{currentCar.likes.length}</p>
 
             </div>
@@ -35,4 +35,4 @@ const CatalogItem = ({
     );
 }
 
-export default CatalogItem;
+export default HomeItem;

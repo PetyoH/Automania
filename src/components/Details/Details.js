@@ -4,6 +4,7 @@ import styles from "./Details.module.css"
 import * as carService from "../../services/carService"
 import { CarContext } from "../../contexts/CarContext";
 import { AuthContext } from "../../contexts/AuthContext";
+import nextId from "react-id-generator";
 
 const Details = () => {
     const navigate = useNavigate();
@@ -44,30 +45,38 @@ const Details = () => {
         navigate('/catalog');
     }
 
-  
-
     const likeHandler = () => {
-        
         const currentLikes = [...currentCar.likes, user.uid];
 
         carService.likeCar(carId, currentLikes)
-            .then(likes => carEdit(currentCar._id, {...currentCar, likes}));
+            .then(likes => carEdit(currentCar._id, { ...currentCar, likes }));
 
         setHasLiked(true);
     }
 
 
     const unlikeHandler = () => {
-
         const currentLikes = currentCar.likes.filter(x => x !== user.uid);
 
-
-        
         carService.likeCar(carId, currentLikes)
-            .then(likes => carEdit(currentCar._id, {...currentCar, likes}));
-
+            .then(likes => carEdit(currentCar._id, { ...currentCar, likes }));
 
         setHasLiked(false);
+    }
+
+    const commentHandler = (e) => {
+        const container = e.target.parentElement;
+        const textarea = container.querySelector('textarea').value;
+
+        const comment = { comment: { text: textarea, email: user.email } };
+
+        const allComments = [comment, ...currentCar.comments];
+
+
+        carService.commentCar(carId, currentCar, allComments)
+            .then(comments => carEdit(currentCar._id, { ...currentCar, comments }));
+
+            container.querySelector('textarea').value = '';
     }
 
     return (
@@ -87,27 +96,36 @@ const Details = () => {
 
 
                     <div className={styles.buttons}>
-
                         {isOwner && <button className={styles.edit} onClick={editHandler}>Edit</button>}
-                        {user && (!hasLiked 
-                        ? <button className={styles.like} onClick={likeHandler}>Like</button> 
-                        : <button className={styles.like} onClick={unlikeHandler}>Unlike</button>)}
-                        
+                        {user && (!hasLiked
+                            ? <button className={styles.like} onClick={likeHandler}>Like</button>
+                            : <button className={styles.like} onClick={unlikeHandler}>Unlike</button>)}
+
                         {isOwner && <button className={styles.delete} onClick={deleteHandler}>Delete</button>}
                     </div>
-
                     {user && <p className={styles.likes}>{currentCar.likes.length}</p>}
 
-                    <h3 className={styles.h3}>Comments:</h3>
+
                     {user && <>
                         <textarea name="description" rows="6" cols="50" className={styles.textarea} />
-                        <button className={styles.comment}>Comment</button>
+                        <button className={styles.comment} onClick={commentHandler}>Comment</button>
                     </>}
+                    <h3 className={styles.h3}>Comments:</h3>
+                    {currentCar.comments.length > 0
+                        ? currentCar.comments.map(x => x.comment).map(comment => {
+                            return <div key={nextId()} className={styles.commentContainer}>
+                                <p className={styles.emailComment}>{comment.email}</p>
+                                <p className={styles.infoComment}>{comment.text}</p>
+                                </div>
+                        })
+                        : <p className={styles.noComments}>No comments yet</p>}
 
                 </div>
             </div>
         </div>
     );
 }
+
+
 
 export default Details;
