@@ -100,7 +100,7 @@
 .brandError {
     color: red;
     position: absolute;
-    top: 155px;
+    top: 160px;
     left: 46px;
     font-size: 15px;
 }
@@ -108,7 +108,7 @@
 .modelError {
     color: red;
     position: absolute;
-    top: 259px;
+    top: 269px;
     left: 46px;
     font-size: 15px;
 }
@@ -116,7 +116,7 @@
 .prizeError {
     color: red;
     position: absolute;
-    top: 364px;
+    top: 378px;
     left: 46px;
     font-size: 15px;
 }
@@ -124,7 +124,7 @@
 .imageError {
     color: red;
     position: absolute;
-    top: 468px;
+    top: 486px;
     left: 46px;
     font-size: 15px;
 }
@@ -132,7 +132,7 @@
 .descriptionError {
     color: red;
     position: absolute;
-    top: 632px;
+    top: 652px;
     left: 46px;
     font-size: 15px;
 }

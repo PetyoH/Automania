@@ -41,7 +41,7 @@ export const getOneCar = async (carId) => {
 
 export const createCar = async (carData) => {
     const allData = {...carData, createdAt: Timestamp.now()}
-
+    
     const docRef = await addDoc(carReference, allData);
 
     return { ...allData, _id: docRef.id };
@@ -56,11 +56,11 @@ export const editCar = async (carId, carData, createdAt, ownerId, likes, comment
 
     const allData = { ...carData, createdAt, ownerId, likes, comments};
 
+    debugger
+
     await setDoc(docRef, { ...allData });
 
-    const decoratedData =  { ...carData, _id: docRef.id, ownerId, likes, comments}
-
-    return decoratedData;
+    return  { ...allData, _id: docRef.id}
 }
 
 export const likeCar = async (carId, likes) => {

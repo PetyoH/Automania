@@ -92,7 +92,6 @@ const Edit = () => {
         <div className={styles.wrapper}>
             <form onSubmit={onSubmit} className={styles.form}>
                 <i onClick={onActionClick} className="fa-solid fa-arrow-left"></i>
-                {/* <Link to={`/details/${carId}`} className="close"><i className="fa-solid fa-arrow-left"></i></Link> */}
                 <h2 className={styles.title}>Edit</h2>
 
                 <label htmlFor="brand" className={styles.labelBrand}>Brand:</label>

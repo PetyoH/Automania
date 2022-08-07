@@ -21,6 +21,12 @@ const Details = () => {
     const { prevPath } = state;
 
 
+    const [area, setArea] = useState('');
+
+    const changeHandler = (e) => {
+        setArea(e.target.value);
+    };
+
 
     useEffect(() => {
 
@@ -43,7 +49,7 @@ const Details = () => {
 
 
     const editHandler = () => {
-        navigate(`/edit/${carId}`, {state: {prevPath: prevPath}});
+        navigate(`/edit/${carId}`, { state: { prevPath: prevPath } });
     }
 
     const deleteHandler = () => {
@@ -80,18 +86,22 @@ const Details = () => {
     }
 
     const commentHandler = (e) => {
-        const container = e.target.parentElement;
-        const textarea = container.querySelector('textarea').value;
-
-        const comment = { comment: { text: textarea, email: user.email } };
+        const comment = { comment: { text: area, email: user.email } };
 
         const allComments = [comment, ...currentCar.comments];
+        console.log();
 
+        if (area !== '') {
 
-        carService.commentCar(carId, currentCar, allComments)
-            .then(comments => carEdit(currentCar._id, { ...currentCar, comments }));
+            carService.commentCar(carId, currentCar, allComments)
+                .then(comments => 
+                    {
+                        carEdit(currentCar._id, { ...currentCar, comments });
+                        setArea('');
+                    });
+        }
 
-        container.querySelector('textarea').value = '';
+        
     }
 
     const onCloseHandler = () => {
@@ -126,7 +136,7 @@ const Details = () => {
 
 
                     {user && <>
-                        <textarea name="description" rows="6" cols="50" className={styles.textarea} />
+                        <textarea name="description" rows="6" cols="50" className={styles.textarea} value={area} onChange={changeHandler} />
                         <button className={styles.comment} onClick={commentHandler}>Comment</button>
                     </>}
                     <h3 className={styles.h3}>Comments:</h3>
