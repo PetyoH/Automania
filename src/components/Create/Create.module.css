@@ -5,17 +5,15 @@
 }
 
 
-
-
 .form {
     border: 1px solid black;
     font-weight: bold;
-    height: 90%;
+    height: 96%;
     width: 26%;
     position: relative;
     text-align: center;
     background-color: #e0dcdc;
-    min-width: 220px;
+    min-width: 240px;
 }
 
 
@@ -47,49 +45,48 @@
 
 
 .input {
-    margin: 12px 0px 22px 0px;  
-    height: 45px;
+    margin: 10px 0px 20px 0px;
+    height: 4%;
     width: 80%;
 }
 
 .textarea {
-    width: 80%;
-    margin: 10px 0px 20px 0px;
+    max-width: 80%;
+    margin: 10px 0px 10px 0px;
     resize: none;
+    padding: 10px;
 }
 
 .labelDescription {
     margin-right: 330px;
     font-size: 18px;
+
 }
 
 .labelBrand {
     margin-right: 368px;
     font-size: 18px;
-
 }
 
 .labelModel {
-    margin-right: 366px;
     font-size: 18px;
-
+    margin-right: 366px;
 }
 
 .labelPrize {
-    margin-right: 370px;
     font-size: 18px;
-
+    margin-right: 370px;
 }
 
 .labelImage {
-    margin-right: 342px;
     font-size: 18px;
+    margin-right: 350px;
 }
 
 .create {
     font-size: 16px;
     display: block;
-    margin: 20px auto 40px auto;
+    margin: 30px auto 40px auto;
     width: 80%;
     height: 6%;
     cursor: pointer;
@@ -98,10 +95,6 @@
 .redirect {
     text-decoration: none; 
     color: lightslategrey;
-}
-
-.redInput {
-    border: 1px solid red;
 }
 
 .brandError {
@@ -115,7 +108,7 @@
 .modelError {
     color: red;
     position: absolute;
-    top: 265px;
+    top: 269px;
     left: 46px;
     font-size: 15px;
 }
@@ -123,7 +116,7 @@
 .prizeError {
     color: red;
     position: absolute;
-    top: 370px;
+    top: 378px;
     left: 46px;
     font-size: 15px;
 }
@@ -131,7 +124,7 @@
 .imageError {
     color: red;
     position: absolute;
-    top: 478px;
+    top: 486px;
     left: 46px;
     font-size: 15px;
 }
@@ -139,36 +132,113 @@
 .descriptionError {
     color: red;
     position: absolute;
-    top: 631px;
+    top: 652px;
     left: 46px;
     font-size: 15px;
 }
 
-@media screen and (max-width: 1500px) {
+
+
+@media screen and (max-width: 1640px) {
     .labelDescription {
-        margin-left: 40px;
+        margin-left: 30px;
+    
     }
     
     .labelBrand {
-        margin-left: 40px;
+        margin-left: 30px;
 
-    
     }
     
     .labelModel {
-        margin-left: 40px;
-
-    
+        margin-left: 30px;
     }
     
     .labelPrize {
-        margin-left: 40px;
-
-    
+        margin-left: 30px;
     }
     
     .labelImage {
-        margin-left: 40px;
-        
+        margin-left: 30px;
+    }
+}
+
+@media screen and (max-width: 1536px) {
+    .title {
+        font-size: 26px;
+    }   
+
+    .labelDescription {
+        font-size: 16px;
+        margin-left: 34 px;
+    }
+    
+    .labelBrand {
+        font-size: 16px;
+        margin-left: 36px;
+
+    }
+    
+    .labelModel {
+        font-size: 16px;
+        margin-left: 36px;
+    }
+    
+    .labelPrize {
+        margin-left: 36px;
+        font-size: 16px;
+    }
+    
+    .labelImage {
+        margin-left: 36px;
+        font-size: 16px;
+    }
+
+    .textarea {
+        max-width: 77%;
+        margin: 10px 0px 10px 0px;
+        resize: none;
+        padding: 10px;
+        height: 100px;
+    }
+
+    .brandError {
+        color: red;
+        position: absolute;
+        top: 134px;
+        left: 36px;
+        font-size: 14px;
+    }
+    
+    .modelError {
+        color: red;
+        position: absolute;
+        top: 218px;
+        left: 36px;
+        font-size: 14px;
+    }
+    
+    .prizeError {
+        color: red;
+        position: absolute;
+        top: 300px;
+        left: 36px;
+        font-size: 14px;
+    }
+    
+    .imageError {
+        color: red;
+        position: absolute;
+        top: 386px;
+        left: 36px;
+        font-size: 14px;
+    }
+    
+    .descriptionError {
+        color: red;
+        position: absolute;
+        top: 558px;
+        left: 36px;
+        font-size: 14px;
     }
 }

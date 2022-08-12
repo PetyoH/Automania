@@ -23,6 +23,11 @@ const Login = () => {
         }));
     };
 
+    const minLenght = (e, boundary) => {
+        setError(values[e.target.name].length < boundary);
+    }
+
+
 
     const onSubmit = async (e) => {
 
@@ -57,12 +62,11 @@ const Login = () => {
                 <label htmlFor="email" className={stylesLogin.emailLabel}>Email:</label>
                 <input type="email" id="email" name="email" className={stylesLogin.email} value={values.email} onChange={changeHandler} />
 
-                <label htmlFor="password">Password:</label>
-                <input type="password" id="password" name="password" className={stylesLogin.password} value={values.password} onChange={changeHandler} />
+                <label htmlFor="password" className={stylesLogin.passwordLabel}>Password:</label>
+                <input type="password" id="password" name="password" className={stylesLogin.password} value={values.password} onChange={changeHandler} onBlur={(e) => minLenght(e, 6)} />
 
 
-                {/* <p className={stylesLogin.error}>Password should be at least 6 characters</p> */}
-                {error && <p className={stylesLogin.error}>Email or Password don't match</p>}
+                {error && <p className={stylesLogin.error}>Password should be at least 6 characters</p>}
                 <button className={stylesLogin.login} type="submit">Login</button>
 
                 

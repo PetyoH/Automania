@@ -9,7 +9,7 @@
 form.loginForm {
     border: 1px solid black;
     font-weight: bold;
-    height: 55%;
+    height: 68%;
     width: 24%;
     position: relative;
     text-align: center;
@@ -76,3 +76,11 @@ input {
 }
 
 
+@media screen and (max-width: 1536px) {
+    .emailLabel {
+        margin-left: 33px;
+    }
+    .passwordLabel {
+        margin-left: 33px;
+    }
+}

@@ -8,7 +8,7 @@
 form.registerForm {
     border: 1px solid black;
     font-weight: bold;
-    height: 70%;
+    height: 90%;
     width: 24%;
     position: relative;
     text-align: center;
@@ -103,4 +103,20 @@ label {
 
 .match {
     color: red;
+}
+
+@media screen and (max-width: 1536px) {
+    .emailLabel {
+        margin-left: 33px;
+    }
+    .passwordLabel {
+        margin-left: 32px;
+    }
+    .confirm {
+        margin-right: 190px;
+    }
+    .match {
+        color: red;
+        margin: 0px;
+    }
 }

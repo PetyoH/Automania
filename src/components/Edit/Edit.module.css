@@ -8,7 +8,7 @@
 .form {
     border: 1px solid black;
     font-weight: bold;
-    height: 88%;
+    height: 96%;
     width: 26%;
     position: relative;
     text-align: center;
@@ -46,7 +46,7 @@
 
 .input {
     margin: 10px 0px 20px 0px;
-    height: 6%;
+    height: 4%;
     width: 80%;
 }
 
@@ -86,7 +86,7 @@
 .edit {
     font-size: 16px;
     display: block;
-    margin: 20px auto 40px auto;
+    margin: 30px auto 40px auto;
     width: 80%;
     height: 6%;
     cursor: pointer;
@@ -160,5 +160,85 @@
     
     .labelImage {
         margin-left: 30px;
+    }
+}
+
+@media screen and (max-width: 1536px) {
+    .title {
+        font-size: 26px;
+    }   
+
+    .labelDescription {
+        font-size: 16px;
+        margin-left: 34 px;
+    }
+    
+    .labelBrand {
+        font-size: 16px;
+        margin-left: 36px;
+
+    }
+    
+    .labelModel {
+        font-size: 16px;
+        margin-left: 36px;
+    }
+    
+    .labelPrize {
+        margin-left: 36px;
+        font-size: 16px;
+    }
+    
+    .labelImage {
+        margin-left: 36px;
+        font-size: 16px;
+    }
+
+    .textarea {
+        max-width: 77%;
+        margin: 10px 0px 10px 0px;
+        resize: none;
+        padding: 10px;
+        height: 100px;
+    }
+
+    .brandError {
+        color: red;
+        position: absolute;
+        top: 134px;
+        left: 36px;
+        font-size: 14px;
+    }
+    
+    .modelError {
+        color: red;
+        position: absolute;
+        top: 218px;
+        left: 36px;
+        font-size: 14px;
+    }
+    
+    .prizeError {
+        color: red;
+        position: absolute;
+        top: 300px;
+        left: 36px;
+        font-size: 14px;
+    }
+    
+    .imageError {
+        color: red;
+        position: absolute;
+        top: 386px;
+        left: 36px;
+        font-size: 14px;
+    }
+    
+    .descriptionError {
+        color: red;
+        position: absolute;
+        top: 558px;
+        left: 36px;
+        font-size: 14px;
     }
 }

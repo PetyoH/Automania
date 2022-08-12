@@ -1,5 +1,5 @@
 .main {
-    height: 2820px;
+    height: 2860px;
     text-align: center;
 
 }
@@ -30,3 +30,8 @@
     text-align: center;
 }
 
+@media screen and (max-width: 1536px) {
+    .latest {
+        width: 73%;
+    }
+}

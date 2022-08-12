@@ -60,9 +60,6 @@ const Register = () => {
             }));
         }
 
-
-
-
     }
 
 
@@ -81,7 +78,7 @@ const Register = () => {
 
                 {errors.email && <p className={stylesRegister.emailError}>Email should be at least 3 characters</p>}
 
-                <label htmlFor="password">Password:</label>
+                <label htmlFor="password" className={stylesRegister.passwordLabel}>Password:</label>
                 <input type="password" id="password" name="password"
                     className={errors.password ? `${stylesRegister.password} ${stylesRegister.borderRed}` : stylesRegister.password}
                     value={values.password} onChange={changeHandler} onBlur={(e) => minLenght(e, 6)} />
